@@ -1,122 +1,91 @@
-# Predictive Maintenance Dashboard for Industrial Equipment
+This project is designed to provide a Predictive Maintenance Dashboard for industrial equipment, using machine learning techniques to predict when maintenance is required. Here's a detailed breakdown of what the project does:
 
-This project provides a Predictive Maintenance Dashboard using machine learning techniques to anticipate equipment maintenance needs. It enables real-time monitoring and predictive analytics based on sensor data, helping reduce unplanned downtime and optimise maintenance schedules.
-
----
-
-## What the Project Does
-
-### Data Collection and Preprocessing
-- Collects historical sensor data (temperature, vibration, pressure, RPM, etc.).
-- Cleans and preprocesses the data to handle missing values and outliers.
-- Engineers relevant features (e.g., change in temperature or vibration) to enhance model accuracy.
-
-### Predictive Model Training
-- Trains machine learning models (Random Forest, Gradient Boosting, Neural Networks) using historical patterns.
-- Identifies key indicators that suggest impending equipment failure or maintenance needs.
-
-### Model Deployment
-- Deploys the trained model within a web application.
-- Exposes predictions via an API, allowing real-time interaction with incoming data.
-
-### Dashboard Interface
-- Interactive dashboard displays:
-  - Real-time metrics (temperature, vibration, pressure, etc.)
-  - Predictions and maintenance alerts
-  - Historical data analysis
-- Allows users to explore predictions by machine or time period.
-
-### Real-Time Monitoring and Alerts
-- Continuously monitors incoming sensor data.
-- Triggers alerts when high failure probability is detected.
-
-### User Interaction
-- Designed for use by:
-  - Maintenance engineers
-  - Operations managers
-- Provides an intuitive, non-technical interface for viewing predictions and insights.
-
----
-
-## Project Workflow
-
-1. Data Input – Collect and feed real-time sensor data.
-2. Data Processing – Clean and preprocess the data.
-3. Model Prediction – Run data through the machine learning model.
-4. Dashboard Update – Display machine status and predictions.
-5. Alerting – Trigger alerts when needed.
-
----
-
-## Benefits
-
-- Proactive Maintenance: Avoid breakdowns with predictive alerts.
-- Data-Driven Decisions: Maintenance teams gain actionable insights.
-- Operational Efficiency: Reduces downtime and extends equipment life.
-
----
-
-## Use Cases
-
-- Manufacturing plants needing continuous machine uptime.
-- Industries with high maintenance costs.
-- Scenarios where unplanned downtime causes financial or safety risks.
-
----
+1. Data Collection and Preprocessing
+The project starts by collecting historical data from sensors and other monitoring equipment on industrial machinery. This data typically includes metrics like temperature, vibration, pressure, RPM, etc.
+The data is then cleaned and preprocessed to handle missing values, outliers, and to engineer relevant features (like changes in temperature or vibration) that can help in predictive modeling.
+2. Predictive Model Training
+Using the preprocessed data, a machine learning model is trained to predict the likelihood of equipment failure or the need for maintenance. The model learns from the historical patterns in the data and identifies key indicators of potential issues.
+Common algorithms for this type of predictive maintenance include Random Forest, Gradient Boosting, or Neural Networks, depending on the complexity and nature of the data.
+3. Model Deployment
+Once the model is trained and validated, it is deployed within the web application. This allows for real-time predictions based on incoming data from the machinery.
+The model is typically exposed through an API, which the web application calls to get predictions.
+4. Dashboard Interface
+The web application features a dashboard that visualizes real-time data from the equipment, as well as predictions from the machine learning model.
+The dashboard might include charts showing the historical trends of temperature, vibration, pressure, and other metrics, along with alerts or notifications when the model predicts that maintenance is needed.
+Users can interact with the dashboard to view detailed reports, historical data, and predictions for different pieces of equipment.
+5. Real-Time Monitoring and Alerts
+The application monitors the equipment in real-time, continuously feeding new data into the machine learning model.
+If the model predicts a high likelihood of failure or the need for maintenance, the dashboard can trigger alerts, allowing maintenance teams to take proactive action before a failure occurs.
+6. User Interaction
+Users, such as maintenance engineers or operations managers, can log into the dashboard to monitor the health of the equipment, view predictive analytics, and plan maintenance activities accordingly.
+The dashboard provides an intuitive interface for non-technical users to understand the insights generated by the machine learning model.
+Project Workflow
+Data Input: Collect and feed real-time sensor data into the system.
+Data Processing: Clean and preprocess the data for analysis.
+Model Prediction: Run the data through the machine learning model to get predictions.
+Dashboard Update: Display the results on the dashboard, showing predictions and current machine status.
+Alerting: If necessary, trigger alerts for equipment that requires immediate attention.
+Benefits
+Proactive Maintenance: By predicting potential failures, the system helps in planning maintenance before issues escalate, reducing downtime and saving costs.
+Data-Driven Decisions: Provides maintenance teams with actionable insights, improving decision-making based on real-time data.
+Efficiency: Reduces the likelihood of unexpected machinery failures, leading to a more efficient operation.
+Use Cases
+Manufacturing plants that need to ensure machinery is always operational.
+Industries with high maintenance costs, where predictive maintenance can lead to significant savings.
+Any scenario where equipment failure could result in costly downtime or safety hazards.
 
 ## Features
 
-- Real-time data visualisation (bar charts and trend plots)
-- Predictive maintenance alerts
-- Historical data tracking and analysis
-
----
+- Real-time data visualization with a bar chart.
+- Predictive maintenance alerts.
+- Historical data analysis.
 
 ## Installation
 
-```bash
-git clone https://github.com/yourusername/predictive-maintenance.git
-cd predictive-maintenance
+1. Clone this repository:
 
-python -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
+    ```bash
+    git clone https://github.com/yourusername/predictive-maintenance.git
+    cd predictive-maintenance
+    ```
 
-pip install -r requirements.txt
-# Install dependencies
-pip install -r requirements.txt
+2. Create and activate a virtual environment:
 
-# Run preprocessing
-python src/data_preprocessing.py
+    ```bash
+    python -m venv venv
+    source venv/bin/activate   # On Windows: venv\Scripts\activate
+    ```
 
-# Feature engineering
-python src/feature_engineering.py
+3. Install the required dependencies:
 
-# Train the model
-python src/model_training.py
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-# Evaluate the model
-python src/model_evaluation.py
+4. ## How to Run
 
-# Start the web app
-python app/app.py
+ 'First Unzip the models folder'
 
-predictive-maintenance/
-├── app/
-│   └── app.py               # Main Flask app
-│   └── dash_app.py          # Dashboard logic
-├── models/                  # Trained machine learning models
-├── src/
-│   ├── data_preprocessing.py
-│   ├── feature_engineering.py
-│   ├── model_training.py
-│   └── model_evaluation.py
-├── templates/               # HTML templates
-├── static/                  # CSS and JS assets
-├── config.yaml              # App configuration file
-├── requirements.txt         # Dependency list
-└── README.md                # Project documentation
-```
+1. Install dependencies: `pip install -r requirements.txt`
+2. Run data preprocessing: `python src/data_preprocessing.py`
+3. Run feature engineering: `python src/feature_engineering.py`
+4. Train the model: `python src/model_training.py`
+5. Evaluate the model: `python src/model_evaluation.py`
+6. Start the web application: `python app/app.py`
+
+## Configuration
+
+Update the `config.yaml` file with the necessary settings for your application (e.g., paths to data files, model parameters).
+
+## Project Structure
+
+- `app.py`: Main Flask application file.
+- `dash_app.py`: Dash application for the real-time data dashboard.
+- `models/`: Directory containing the trained machine learning model.
+- `templates/`: HTML templates for the Flask app.
+- `static/`: Static files (CSS, JavaScript).
+- `src/`: Source code for data processing, model training, etc.
 
 ## License
-This project is licensed under the MIT License.
 
+This project is licensed under the MIT License.
